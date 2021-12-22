@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+
+from car import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$', views.cars_list, name='main_page'),
+    url(r'^add-form/$', views.car_form, name='car_form'),
+    url(r'^get_rest/$', views.rest)
 ]
